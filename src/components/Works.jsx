@@ -60,7 +60,7 @@ const ProjectCard = ({
 };
 const Works = () => {
   return (
-    <>
+    <section id="project">
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>My Work</p>
         <h2 className={`${styles.sectionHeadText} text-center`}>Projects</h2>
@@ -69,7 +69,7 @@ const Works = () => {
         <motion.p>
           <div
             variants={fadeIn("", "", 0.1, 1)}
-            className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+            className="mt-3 text-secondary text-[17px] w-xl leading-[30px] xl:text-center xs:text-justify"
           >
             Throughout my academic journey and hands-on explorations, I’ve
             engineered a diverse range of projects — each rooted in curiosity,
@@ -94,7 +94,7 @@ const Works = () => {
           </div>
         </motion.p>
       </div>
-    </>
+    </section>
   );
 };
 

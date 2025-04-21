@@ -33,12 +33,12 @@ const About = () => {
   return (
     <div>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview</h2>
+        <p className={`${styles.sectionSubText } text-center`}>Introduction</p>
+        <h2 className={`${styles.sectionHeadText} text-center` } >Overview</h2>
       </motion.div>
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+        className="mt-4 text-secondary text-[17px]  w-full leading-[30px] xl:text-center xs:text-justify"
       >
         I’m Kanish Mahato, a 4th‑year Computer Science student at PEC who lives
         at the intersection of full‑stack web development, 3D visualization, and

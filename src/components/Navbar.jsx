@@ -24,7 +24,8 @@ const Navbar = () => {
         >
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
-            Tron2003 &nbsp;<span className="sm:block hidden">| Kanish Mahato</span>
+            Tron2003 &nbsp;
+            <span className="sm:block hidden">| Kanish Mahato</span>
           </p>
         </Link>
 
@@ -55,16 +56,18 @@ const Navbar = () => {
             } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className="list-none flex justify-between items-center flex-col gap-4">
-              {navLinks.map((Link) => (
+              {navLinks.map((yo) => (
                 <li
-                  key={Link.id}
+                  key={yo.id}
                   className={`${
-                    active === Link.title ? "text-white" : "text-secondary"
+                    active === yo.title ? "text-white" : "text-secondary"
                   } font-poppins  font-medium cursor-pointer text-[16px]`}
-                  onClick={() => {setToggle(!toggle);setActive(Link.title); }}
-              
+                  onClick={() => {
+                    setToggle(!toggle);
+                    setActive(yo.title);
+                  }}
                 >
-                  <a href={`#${Link.id}`}>{Link.title}</a>
+                  <a href={`#${yo.id}`}>{yo.title}</a>
                 </li>
               ))}
             </ul>
