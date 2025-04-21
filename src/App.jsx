@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import Footer from "./components/footer";
+import {Footer} from "./components";
 import {
   About,
   Contact,
@@ -10,7 +10,6 @@ import {
   Tech,
   Works,
   StarsCanvas,
-
 } from "./components";
 const App = () => {
   return (

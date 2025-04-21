@@ -7,6 +7,7 @@ import Experience from './Experience';
 import Works from './Works';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
+import Footer from './Footer'
 
 export {
   Hero,
@@ -21,6 +22,6 @@ export {
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas,
- 
+ Footer,
 
 }
