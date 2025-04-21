@@ -20,18 +20,19 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
-
+import portfolio from "./portfolio.png"
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import company1 from "./company/company1.jpg";
-
+import tron_blog  from "./tron_blog.png"
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
-
-
+import tron_estate from "./tron_estate.png"
+import magic_search from "./magic_search.png"
+import email_spam from "./email_spam.png"
 export {
   logo,
   backend,
@@ -62,4 +63,9 @@ export {
   jobit,
   tripguide,
   company1,
+  portfolio,
+  tron_blog,
+  tron_estate,
+  magic_search,
+  email_spam,
 };

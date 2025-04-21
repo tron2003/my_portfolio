@@ -19,13 +19,15 @@ import {
     starbucks,
     tesla,
     shopify,
-    carrent,
+
     jobit,
     tripguide,
     threejs,
-    company1
+    company1,
+    email_spam,
+    
 } from "../assets";
-
+import { portfolio,tron_blog,tron_estate,magic_search } from "../assets";
 export const navLinks = [
     {
         id: "about",
@@ -219,12 +221,12 @@ const projects = [
                 color: "pink-text-gradient",
             },
         ],
-        image: "portfolio_image_placeholder", // replace with your portfolio image asset
-        source_code_link: "https://github.com/yourusername/portfolio-repo",
-        live_link: "https://your-live-portfolio-link.com",
+        image: portfolio, // replace with your portfolio image asset
+        source_code_link: "https://github.com/tron2003/my_portfolio",
+        live_link: "https://my-portfolio-4y0r.onrender.com",
     },
     {
-        name: "Real Blog Website",
+        name: "Tron Blog Website",
         description:
             "A full-stack MERN-powered blogging platform allowing users to write, edit, and manage posts, designed with a responsive and modern UI for smooth content creation.",
         tags: [
@@ -241,12 +243,12 @@ const projects = [
                 color: "pink-text-gradient",
             },
         ],
-        image: carrent, // replace this with your real blog image asset
-        source_code_link: "https://github.com/yourusername/your-blog-repo",
-        live_link: "https://your-blog-live-link.com",
+        image: tron_blog, // replace this with your real blog image asset
+        source_code_link: "https://github.com/tron2003/tron_blog",
+        live_link: "https://tron-blog.onrender.com",
     },
     {
-        name: "Real Estate Website",
+        name: "Tron Estate Website",
         description:
             "A user-friendly property listing and search platform where clients can browse, filter, and explore real estate listings with interactive maps and advanced search features.",
         tags: [
@@ -263,9 +265,9 @@ const projects = [
                 color: "pink-text-gradient",
             },
         ],
-        image: "realestate_image_placeholder",
-        source_code_link: "https://github.com/yourusername/realestate-repo",
-        live_link: "https://your-realestate-live-link.com",
+        image: tron_estate,
+        source_code_link: "https://github.com/tron2003/tron_estate2/tree/main",
+        live_link: "https://tron-estate.onrender.com",
     },
     {
         name: "MagicSearch Website",
@@ -285,9 +287,9 @@ const projects = [
                 color: "pink-text-gradient",
             },
         ],
-        image: "magicsearch_image_placeholder",
-        source_code_link: "https://github.com/yourusername/magicsearch-repo",
-        live_link: "https://your-magicsearch-live-link.com",
+        image: magic_search,
+        source_code_link: "https://github.com/tron2003/search_engine_magic/tree/main",
+        live_link: "https://search-engine-magic.onrender.com",
     },
     {
         name: "Email Spam Classifier",
@@ -307,32 +309,32 @@ const projects = [
                 color: "pink-text-gradient",
             },
         ],
-        image: "emailspam_image_placeholder",
-        source_code_link: "https://github.com/yourusername/email-spam-classifier",
-        live_link: "https://your-emailspam-live-link.com",
+        image: email_spam,
+        source_code_link: "https://github.com/tron2003/email_classifier/tree/mainr",
+        live_link: "https://email-classifier-yepv.onrender.com/",
     },
-    {
-        name: "Generation of CT from MRI Image",
-        description:
-            "A deep learning project using Conditional GANs (cGAN) to translate MRI scans into synthetic CT images for better medical imaging assistance.",
-        tags: [
-            {
-                name: "tensorflow",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "cgan",
-                color: "green-text-gradient",
-            },
-            {
-                name: "medical-imaging",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: "ctmri_image_placeholder",
-        source_code_link: "https://github.com/yourusername/ct-from-mri",
-        live_link: "https://your-ctfrommri-live-link.com",
-    },
+    // {
+    //     name: "Generation of CT from MRI Image",
+    //     description:
+    //         "A deep learning project using Conditional GANs (cGAN) to translate MRI scans into synthetic CT images for better medical imaging assistance.",
+    //     tags: [
+    //         {
+    //             name: "tensorflow",
+    //             color: "blue-text-gradient",
+    //         },
+    //         {
+    //             name: "cgan",
+    //             color: "green-text-gradient",
+    //         },
+    //         {
+    //             name: "medical-imaging",
+    //             color: "pink-text-gradient",
+    //         },
+    //     ],
+    //     image: "ctmri_image_placeholder",
+    //     source_code_link: "https://github.com/yourusername/ct-from-mri",
+    //     live_link: "https://your-ctfrommri-live-link.com",
+    // },
 ];
 
 export { services, technologies, experiences, testimonials, projects };
