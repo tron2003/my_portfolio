@@ -126,7 +126,7 @@ const experiences = [
         company_name: "CSIR-CSIO",
         icon: company1,
         iconBg: "#383E56",
-        date: "March 2020 - April 2021",
+        date: "January 2024 - April 2024",
         points: [
             "Researched Generative Adversarial Networks (GANs) to enhance synthetic data generation for image augmentation, achieving a 10% improvement in image quality metrics.",
             "Explored U-Net architecture for medical image segmentation, improving model comprehension and implementation by 10%.",
