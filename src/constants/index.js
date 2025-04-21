@@ -23,6 +23,7 @@ import {
     jobit,
     tripguide,
     threejs,
+    company1
 } from "../assets";
 
 export const navLinks = [
@@ -43,23 +44,22 @@ export const navLinks = [
         title: "Contact",
     },
 ];
-
 const services = [
     {
-        title: "Web Developer",
+        title: "Full MERN Stack Web Developer",
         icon: web,
     },
     {
-        title: "React Native Developer",
-        icon: mobile,
+        title: "AI Engineer",
+        icon: creator, // swapped from mobile to creator for AI
     },
     {
-        title: "Backend Developer",
+        title: "Data Analytics",
         icon: backend,
     },
     {
-        title: "Content Creator",
-        icon: creator,
+        title: "DSA",
+        icon: mobile, // swapped from creator to mobile for now
     },
 ];
 
@@ -120,57 +120,57 @@ const technologies = [
 
 const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
-        icon: starbucks,
+        title: "GenAI Research Intern",
+        company_name: "CSIR-CSIO",
+        icon: company1,
         iconBg: "#383E56",
         date: "March 2020 - April 2021",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Researched Generative Adversarial Networks (GANs) to enhance synthetic data generation for image augmentation, achieving a 10% improvement in image quality metrics.",
+            "Explored U-Net architecture for medical image segmentation, improving model comprehension and implementation by 10%.",
+            "Applied Python programming to automate data preprocessing and analysis workflows, boosting coding efficiency by 15%.",
+            "Collaborated in code reviews and actively provided feedback to peers to maintain code quality and knowledge sharing.",
         ],
     },
-    {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: tesla,
-        iconBg: "#E6DEDD",
-        date: "Jan 2021 - Feb 2022",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: shopify,
-        iconBg: "#383E56",
-        date: "Jan 2022 - Jan 2023",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
-        iconBg: "#E6DEDD",
-        date: "Jan 2023 - Present",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
+    // {
+    //     title: "React Native Developer",
+    //     company_name: "Tesla",
+    //     icon: tesla,
+    //     iconBg: "#E6DEDD",
+    //     date: "Jan 2021 - Feb 2022",
+    //     points: [
+    //         "Developing and maintaining web applications using React.js and other related technologies.",
+    //         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+    //         "Implementing responsive design and ensuring cross-browser compatibility.",
+    //         "Participating in code reviews and providing constructive feedback to other developers.",
+    //     ],
+    // },
+    // {
+    //     title: "Web Developer",
+    //     company_name: "Shopify",
+    //     icon: shopify,
+    //     iconBg: "#383E56",
+    //     date: "Jan 2022 - Jan 2023",
+    //     points: [
+    //         "Developing and maintaining web applications using React.js and other related technologies.",
+    //         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+    //         "Implementing responsive design and ensuring cross-browser compatibility.",
+    //         "Participating in code reviews and providing constructive feedback to other developers.",
+    //     ],
+    // },
+    // {
+    //     title: "Full stack Developer",
+    //     company_name: "Meta",
+    //     icon: meta,
+    //     iconBg: "#E6DEDD",
+    //     date: "Jan 2023 - Present",
+    //     points: [
+    //         "Developing and maintaining web applications using React.js and other related technologies.",
+    //         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+    //         "Implementing responsive design and ensuring cross-browser compatibility.",
+    //         "Participating in code reviews and providing constructive feedback to other developers.",
+    //     ],
+    // },
 ];
 
 const testimonials = [
@@ -202,9 +202,31 @@ const testimonials = [
 
 const projects = [
     {
-        name: "Car Rent",
+        name: "Portfolio Website",
         description:
-            "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+            "A personal portfolio website showcasing my skills, projects, and experience as a Full Stack Developer and AI enthusiast — designed to reflect my passion for clean code and creative solutions.",
+        tags: [
+            {
+                name: "react",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "tailwind",
+                color: "green-text-gradient",
+            },
+            {
+                name: "threejs",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: "portfolio_image_placeholder", // replace with your portfolio image asset
+        source_code_link: "https://github.com/yourusername/portfolio-repo",
+        live_link: "https://your-live-portfolio-link.com",
+    },
+    {
+        name: "Real Blog Website",
+        description:
+            "A full-stack MERN-powered blogging platform allowing users to write, edit, and manage posts, designed with a responsive and modern UI for smooth content creation.",
         tags: [
             {
                 name: "react",
@@ -219,50 +241,97 @@ const projects = [
                 color: "pink-text-gradient",
             },
         ],
-        image: carrent,
-        source_code_link: "https://github.com/",
+        image: carrent, // replace this with your real blog image asset
+        source_code_link: "https://github.com/yourusername/your-blog-repo",
+        live_link: "https://your-blog-live-link.com",
     },
     {
-        name: "Job IT",
+        name: "Real Estate Website",
         description:
-            "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+            "A user-friendly property listing and search platform where clients can browse, filter, and explore real estate listings with interactive maps and advanced search features.",
         tags: [
             {
                 name: "react",
                 color: "blue-text-gradient",
             },
             {
-                name: "restapi",
+                name: "nodejs",
                 color: "green-text-gradient",
             },
             {
-                name: "scss",
+                name: "mongodb",
                 color: "pink-text-gradient",
             },
         ],
-        image: jobit,
-        source_code_link: "https://github.com/",
+        image: "realestate_image_placeholder",
+        source_code_link: "https://github.com/yourusername/realestate-repo",
+        live_link: "https://your-realestate-live-link.com",
     },
     {
-        name: "Trip Guide",
+        name: "MagicSearch Website",
         description:
-            "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+            "A lightning-fast search engine clone that can perform real-time keyword searches across multiple categories, using modern frontend optimization and backend indexing.",
         tags: [
             {
-                name: "nextjs",
+                name: "react",
                 color: "blue-text-gradient",
             },
             {
-                name: "supabase",
+                name: "express",
                 color: "green-text-gradient",
             },
             {
-                name: "css",
+                name: "elasticsearch",
                 color: "pink-text-gradient",
             },
         ],
-        image: tripguide,
-        source_code_link: "https://github.com/",
+        image: "magicsearch_image_placeholder",
+        source_code_link: "https://github.com/yourusername/magicsearch-repo",
+        live_link: "https://your-magicsearch-live-link.com",
+    },
+    {
+        name: "Email Spam Classifier",
+        description:
+            "A machine learning model designed to classify emails as 'Spam' or 'Not Spam' using Natural Language Processing and feature engineering techniques.",
+        tags: [
+            {
+                name: "python",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "scikit-learn",
+                color: "green-text-gradient",
+            },
+            {
+                name: "nlp",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: "emailspam_image_placeholder",
+        source_code_link: "https://github.com/yourusername/email-spam-classifier",
+        live_link: "https://your-emailspam-live-link.com",
+    },
+    {
+        name: "Generation of CT from MRI Image",
+        description:
+            "A deep learning project using Conditional GANs (cGAN) to translate MRI scans into synthetic CT images for better medical imaging assistance.",
+        tags: [
+            {
+                name: "tensorflow",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "cgan",
+                color: "green-text-gradient",
+            },
+            {
+                name: "medical-imaging",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: "ctmri_image_placeholder",
+        source_code_link: "https://github.com/yourusername/ct-from-mri",
+        live_link: "https://your-ctfrommri-live-link.com",
     },
 ];
 
