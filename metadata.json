@@ -1,0 +1,6 @@
+{
+  "name": "Operator Portfolio",
+  "description": "High-performance developer showcase featuring system telemetry logging, Sentry observability simulation, Gemini neural transmission uplink, and real-time source-code archiving.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
