@@ -77,8 +77,8 @@ export const projects = [
 export const personalInfo = {
   name: "Kanish Mahato",
   email: "kanishm245@gmail.com",
-  phone: "+91 79863 38758",
-  location: "Sector 75, Mohali, India",
+  phone: "+91 7986338758",
+  location: "Sector 13, Chandigarh, India",
   linkedin: "linkedin.com/in/kanish-mahato-26a445223",
   github: "github.com/tron2003",
   bio: "AI Engineer and Full-Stack Developer passionate about building intelligent systems and high-performance web applications. Experienced in machine learning, backend optimization, and scalable system design.",
