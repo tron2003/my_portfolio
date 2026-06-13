@@ -1,8 +1,59 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import emailjs from "emailjs-com";
+import MatrixRain from "./components/MatrixRain";
 
 export default function App() {
   const threeContainerRef = useRef<HTMLDivElement>(null);
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isLoading, setIsLoading] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
+
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setFeedback(null);
+
+    try {
+      const templateParams = {
+        to_email: import.meta.env.VITE_CONTACT_EMAIL || "your-email@example.com",
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      };
+
+      console.log("Sending with params:", templateParams);
+      console.log("Service ID:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
+      console.log("Template ID:", import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
+
+      const response = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      if (response.status === 200) {
+        setFeedback({ type: "success", message: "DATA_TRANSMITTED_SUCCESSFULLY. AWAITING_RESPONSE..." });
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setFeedback(null), 5000);
+      }
+    } catch (error: any) {
+      console.error("EmailJS Error:", error);
+      const errorMsg = error?.text || error?.message || "TRANSMISSION_FAILED";
+      setFeedback({ type: "error", message: `ERROR: ${errorMsg}` });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     const container = threeContainerRef.current;
@@ -122,6 +173,7 @@ export default function App() {
       
       {/* Cyberpunk Ambient Red Background Layer */}
       <div className="fixed inset-0 pointer-events-none -z-10 bg-[#0B0B0B] overflow-hidden">
+        <MatrixRain />
         {/* Glowing Red Orbs (Shader-like ambient light) */}
         <div className="absolute top-[-20%] left-[10%] w-[80%] h-[80%] opacity-20 animate-pulse" style={{ background: 'radial-gradient(circle at 50% 30%, #FF003C 0%, transparent 60%)', filter: 'blur(100px)', animationDuration: '8s' }}></div>
         <div className="absolute bottom-[-10%] right-[10%] w-[60%] h-[60%] opacity-10 animate-pulse" style={{ background: 'radial-gradient(circle at 50% 50%, #FF003C 0%, transparent 60%)', filter: 'blur(80px)', animationDuration: '12s', animationDelay: '2s' }}></div>
@@ -415,21 +467,56 @@ export default function App() {
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-neon-red"></div>
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-neon-red"></div>
             
-            <form className="flex flex-col gap-6 relative z-10">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6 relative z-10">
               <div className="flex flex-col gap-1">
                 <label className="font-label-sm text-[10px] text-neon-red uppercase">TRANSMITTER_ID [NAME]</label>
-                <input className="bg-transparent border-0 border-b border-white/30 cyber-input text-white font-body-md py-2 px-0 focus:ring-0 focus:border-b-neon-red outline-none" placeholder="ENTER_ALIAS" type="text"/>
+                <input
+                  className="bg-transparent border-0 border-b border-white/30 cyber-input text-white font-body-md py-2 px-0 focus:ring-0 focus:border-b-neon-red outline-none"
+                  placeholder="ENTER_ALIAS"
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  required
+                />
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-label-sm text-[10px] text-neon-red uppercase">COMM_CHANNEL [EMAIL]</label>
-                <input className="bg-transparent border-0 border-b border-white/30 cyber-input text-white font-body-md py-2 px-0 focus:ring-0 focus:border-b-neon-red outline-none" placeholder="ENTER_ADDRESS" type="email"/>
+                <input
+                  className="bg-transparent border-0 border-b border-white/30 cyber-input text-white font-body-md py-2 px-0 focus:ring-0 focus:border-b-neon-red outline-none"
+                  placeholder="ENTER_ADDRESS"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  required
+                />
               </div>
               <div className="flex flex-col gap-1 mb-4">
                 <label className="font-label-sm text-[10px] text-neon-red uppercase">PAYLOAD [MESSAGE]</label>
-                <textarea className="bg-transparent border-0 border-b border-white/30 cyber-input text-white font-body-md py-2 px-0 focus:ring-0 focus:border-b-neon-red outline-none resize-none h-24" placeholder="ENCODE_MESSAGE..."></textarea>
+                <textarea
+                  className="bg-transparent border-0 border-b border-white/30 cyber-input text-white font-body-md py-2 px-0 focus:ring-0 focus:border-b-neon-red outline-none resize-none h-24"
+                  placeholder="ENCODE_MESSAGE..."
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  required
+                ></textarea>
               </div>
-              <button type="button" className="bg-neon-red text-white font-label-sm text-label-sm py-4 uppercase tracking-widest hover:bg-white hover:text-neon-red transition-colors glitch-hover shadow-neon self-start px-8 cursor-pointer">
-                TRANSMIT_DATA
+              {feedback && (
+                <div className={`font-label-sm text-[11px] uppercase tracking-widest py-2 px-3 ${
+                  feedback.type === "success"
+                    ? "bg-green-500/20 text-green-400 border border-green-500/40"
+                    : "bg-red-500/20 text-red-400 border border-red-500/40"
+                }`}>
+                  {feedback.message}
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="bg-neon-red text-white font-label-sm text-label-sm py-4 uppercase tracking-widest hover:bg-white hover:text-neon-red disabled:opacity-50 disabled:cursor-not-allowed transition-colors glitch-hover shadow-neon self-start px-8 cursor-pointer">
+                {isLoading ? "TRANSMITTING..." : "TRANSMIT_DATA"}
               </button>
             </form>
           </div>
