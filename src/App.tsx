@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import emailjs from "emailjs-com";
 import MatrixRain from "./components/MatrixRain";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import { personalInfo } from "./constants";
 
 export default function App() {
   const threeContainerRef = useRef<HTMLDivElement>(null);
@@ -25,7 +28,8 @@ export default function App() {
 
     try {
       const templateParams = {
-        to_email: import.meta.env.VITE_CONTACT_EMAIL || "your-email@example.com",
+        to_email: import.meta.env.VITE_CONTACT_EMAIL || personalInfo.email,
+        to_name: personalInfo.name,
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
@@ -242,12 +246,12 @@ export default function App() {
               SYS.STATUS: ONLINE
             </div>
             <h1 className="font-display-lg text-headline-lg-mobile md:text-display-lg text-white mb-stack-xs uppercase cyber-cursor shadow-neon bg-transparent" style={{ textShadow: "0px 0px 8px rgba(255,0,60,0.5)", borderLeft: "4px solid #FF003C", paddingLeft: "16px" }}>
-              OPERATOR_ARCHITECT
+              {personalInfo.name.toUpperCase()}
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant mb-stack-xl max-w-2xl pl-5 mt-4">
-              &gt; SPECIALIZING_IN_HIGH_SPEED_INTERFACES<br/>
-              &gt; MINIMAL_LATENCY<br/>
-              &gt; MAXIMUM_IMPACT
+              &gt; AI_ENGINEER && FULLSTACK_DEVELOPER<br/>
+              &gt; SPECIALIZING_IN_ML_AND_WEB<br/>
+              &gt; BUILDING_INTELLIGENT_SYSTEMS
             </p>
             <div className="flex gap-4 pl-5">
               <a className="bg-neon-red text-white font-label-sm text-label-sm px-6 py-3 uppercase tracking-widest hover:bg-white hover:text-neon-red transition-colors glitch-hover inline-flex items-center gap-2" href="#projects">
@@ -267,164 +271,10 @@ export default function App() {
         </section>
 
         {/* Projects Section */}
-        <section className="mb-stack-xl border-b-2 border-surface-container-high pb-stack-xl" id="projects">
-          <div className="flex items-center gap-4 mb-stack-md">
-            <span className="text-neon-red font-body-md text-body-md">&gt;</span>
-            <h2 className="font-headline-md text-headline-md text-white uppercase tracking-widest">EXECUTED_PROJECTS</h2>
-            <div className="h-px bg-surface-container-highest flex-grow ml-4"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-            {/* Project Card 1 */}
-            <div className="bg-cyber-surface cyber-border p-6 relative group hover:border-neon-red transition-colors duration-300">
-              <div className="absolute top-2 right-2 font-label-sm text-[10px] text-on-surface-variant">ID:0x1A</div>
-              <div className="h-40 w-full mb-4 cyber-border relative overflow-hidden bg-cyber-black">
-                <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                  <span className="material-symbols-outlined text-6xl text-neon-red">hub</span>
-                </div>
-              </div>
-              <div className="mb-4">
-                <span className="bg-neon-red text-cyber-black text-[10px] font-label-sm px-1 py-0.5 mr-2">SYS_UI</span>
-                <span className="bg-surface-container-high text-white text-[10px] font-label-sm px-1 py-0.5">REACT.JS</span>
-              </div>
-              <h3 className="font-body-md text-body-md text-white font-bold mb-2 uppercase">NEURAL_NET_DASHBOARD</h3>
-              <p className="font-label-sm text-label-sm text-on-surface-variant mb-6 h-12 overflow-hidden">
-                Real-time visualization interface for localized neural network processing nodes.
-              </p>
-              <button className="w-full border border-neon-red text-neon-red font-label-sm text-label-sm py-2 uppercase hover:bg-neon-red hover:text-white transition-colors shadow-neon flex justify-center items-center gap-2 cursor-pointer">
-                RUN_PROGRAM <span className="material-symbols-outlined text-sm">terminal</span>
-              </button>
-            </div>
-            
-            {/* Project Card 2 */}
-            <div className="bg-cyber-surface cyber-border p-6 relative group hover:border-neon-red transition-colors duration-300">
-              <div className="absolute top-2 right-2 font-label-sm text-[10px] text-on-surface-variant">ID:0x2B</div>
-              <div className="h-40 w-full mb-4 cyber-border relative overflow-hidden bg-cyber-black">
-                <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                  <span className="material-symbols-outlined text-6xl text-neon-red">database</span>
-                </div>
-              </div>
-              <div className="mb-4">
-                <span className="bg-neon-red text-cyber-black text-[10px] font-label-sm px-1 py-0.5 mr-2">DATA_VIZ</span>
-                <span className="bg-surface-container-high text-white text-[10px] font-label-sm px-1 py-0.5">WEBGL</span>
-              </div>
-              <h3 className="font-body-md text-body-md text-white font-bold mb-2 uppercase">QUANTUM_LEDGER_UI</h3>
-              <p className="font-label-sm text-label-sm text-on-surface-variant mb-6 h-12 overflow-hidden">
-                High-performance rendering engine for cryptographic transaction tracking.
-              </p>
-              <button className="w-full border border-neon-red text-neon-red font-label-sm text-label-sm py-2 uppercase hover:bg-neon-red hover:text-white transition-colors shadow-neon flex justify-center items-center gap-2 cursor-pointer">
-                RUN_PROGRAM <span className="material-symbols-outlined text-sm">terminal</span>
-              </button>
-            </div>
-            
-            {/* Project Card 3 */}
-            <div className="bg-cyber-surface cyber-border p-6 relative group hover:border-neon-red transition-colors duration-300">
-              <div className="absolute top-2 right-2 font-label-sm text-[10px] text-on-surface-variant">ID:0x3C</div>
-              <div className="h-40 w-full mb-4 cyber-border relative overflow-hidden bg-cyber-black">
-                <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                  <span className="material-symbols-outlined text-6xl text-neon-red">security</span>
-                </div>
-              </div>
-              <div className="mb-4">
-                <span className="bg-neon-red text-cyber-black text-[10px] font-label-sm px-1 py-0.5 mr-2">SECURITY</span>
-                <span className="bg-surface-container-high text-white text-[10px] font-label-sm px-1 py-0.5">VUE.JS</span>
-              </div>
-              <h3 className="font-body-md text-body-md text-white font-bold mb-2 uppercase">FIREWALL_CONTROL_PANEL</h3>
-              <p className="font-label-sm text-label-sm text-on-surface-variant mb-6 h-12 overflow-hidden">
-                Tactical oversight interface for managing inbound autonomous threats.
-              </p>
-              <button className="w-full border border-neon-red text-neon-red font-label-sm text-label-sm py-2 uppercase hover:bg-neon-red hover:text-white transition-colors shadow-neon flex justify-center items-center gap-2 cursor-pointer">
-                RUN_PROGRAM <span className="material-symbols-outlined text-sm">terminal</span>
-              </button>
-            </div>
-          </div>
-        </section>
+        <Projects />
 
         {/* Career Data (Kernel) */}
-        <section className="mb-stack-xl border-b-2 border-surface-container-high pb-stack-xl" id="kernel">
-          <div className="flex items-center gap-4 mb-stack-md">
-            <span className="text-neon-red font-body-md text-body-md">&gt;</span>
-            <h2 className="font-headline-md text-headline-md text-white uppercase tracking-widest">CAREER_DATA [KERNEL]</h2>
-            <div className="h-px bg-surface-container-highest flex-grow ml-4"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-            {/* Experience Module */}
-            <div>
-              <h3 className="text-neon-red font-label-sm text-[10px] uppercase mb-4 tracking-widest border-b border-white/10 pb-2">Primary_Directives // Experience</h3>
-              
-              <div className="flex flex-col gap-6">
-                <div className="bg-cyber-surface cyber-border p-4 relative group">
-                  <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-neon-red"></div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="text-white font-body-md text-sm font-bold uppercase">Senior Frontend Engineer</h4>
-                      <p className="text-on-surface-variant text-[10px] font-label-sm uppercase mt-1">CyberDyne Systems / 2022 - Present</p>
-                    </div>
-                    <span className="bg-neon-red/10 text-neon-red border border-neon-red/30 px-1.5 py-0.5 text-[8px] font-label-sm mt-1">ACTIVE</span>
-                  </div>
-                  <p className="text-on-surface-variant font-label-sm text-[11px] leading-relaxed">
-                    &gt; Architected high-frequency trading dashboards.<br/>
-                    &gt; Reduced render latency by 45% using WebGL/React.<br/>
-                    &gt; Led a squad of 5 operatives in core system migrations.
-                  </p>
-                </div>
-
-                <div className="bg-cyber-surface cyber-border p-4 relative group opacity-80 hover:opacity-100 transition-opacity">
-                  <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/30"></div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="text-white font-body-md text-sm font-bold uppercase">UI Developer</h4>
-                      <p className="text-on-surface-variant text-[10px] font-label-sm uppercase mt-1">Nexus Corp / 2019 - 2022</p>
-                    </div>
-                  </div>
-                  <p className="text-on-surface-variant font-label-sm text-[11px] leading-relaxed">
-                    &gt; Built component library for internal telemetry tools.<br/>
-                    &gt; Implemented rigid grid systems and brutalist guidelines.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Education & Skills Module */}
-            <div className="flex flex-col gap-6">
-              <div>
-                <h3 className="text-neon-red font-label-sm text-[10px] uppercase mb-4 tracking-widest border-b border-white/10 pb-2">Training_Origins // Education</h3>
-                
-                <div className="bg-cyber-surface cyber-border p-4 relative">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="text-white font-body-md text-sm font-bold uppercase">B.S. Computer Science</h4>
-                      <p className="text-on-surface-variant text-[10px] font-label-sm uppercase mt-1">MIT (Massachusetts Inst. of Tech) / 2015 - 2019</p>
-                    </div>
-                  </div>
-                  <p className="text-on-surface-variant font-label-sm text-[11px] leading-relaxed">
-                    &gt; Focus on Human-Computer Interaction & Systems Architecture.<br/>
-                    &gt; Honors: Summa Cum Laude
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-neon-red font-label-sm text-[10px] uppercase mb-4 tracking-widest border-b border-white/10 pb-2">Tactical_Loadout // Skills</h3>
-                
-                <div className="bg-cyber-black cyber-border p-4 font-label-sm text-[11px] leading-relaxed">
-                  <div className="mb-2">
-                    <span className="text-neon-red mr-2">LANGUAGES:</span>
-                    <span className="text-white">TypeScript, JavaScript, GLSL, Python</span>
-                  </div>
-                  <div className="mb-2">
-                    <span className="text-neon-red mr-2">FRAMEWORKS:</span>
-                    <span className="text-white">React, Next.js, Three.js, Tailwind CSS</span>
-                  </div>
-                  <div>
-                    <span className="text-neon-red mr-2">SYS_TOOLS:</span>
-                    <span className="text-white">Git, Docker, Vite, Figma</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Experience />
 
         {/* About / Bio Data */}
         <section className="mb-stack-xl border-b-2 border-surface-container-high pb-stack-xl flex flex-col md:flex-row gap-gutter" id="about">
@@ -437,10 +287,10 @@ export default function App() {
               <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-neon-red"></div>
               <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-neon-red"></div>
               <ul className="font-label-sm text-label-sm space-y-2 text-on-surface-variant">
-                <li><span className="text-neon-red mr-2">CLASS:</span> FRONT_END_ENGINEER</li>
-                <li><span className="text-neon-red mr-2">LEVEL:</span> 99</li>
-                <li><span className="text-neon-red mr-2">FACTION:</span> INDEPENDENT</li>
-                <li><span className="text-neon-red mr-2">LOCATION:</span> SECTOR_7</li>
+                <li><span className="text-neon-red mr-2">CLASS:</span> AI_ENGINEER</li>
+                <li><span className="text-neon-red mr-2">LEVEL:</span> INTERMEDIATE</li>
+                <li><span className="text-neon-red mr-2">FACTION:</span> OPEN_SOURCE</li>
+                <li><span className="text-neon-red mr-2">LOCATION:</span> {personalInfo.location.split(",")[0]}</li>
               </ul>
             </div>
           </div>
@@ -449,8 +299,9 @@ export default function App() {
             <p className="relative z-10 mt-4">
               &gt; INITIALIZING_MEMORY_BANK...<br/>
               &gt; DATA_RETRIEVAL_SUCCESSFUL.<br/><br/>
-              I engineer digital structures that prioritize raw performance and uncompromising aesthetics. Operating at the intersection of brutalist design and cutting-edge web technologies, my objective is to construct interfaces that do not merely function, but command attention.<br/><br/>
-              I eliminate bloat. I enforce rigid grids. I weaponize contrast.<br/><br/>
+              {personalInfo.bio}<br/><br/>
+              &gt; Achievements: 830+ DSA problems solved, 200-day LeetCode streak, Hacktoberfest contributor<br/>
+              &gt; Currently advancing expertise in MLOps and production-scale AI systems.<br/><br/>
               &gt; END_OF_FILE.
             </p>
           </div>
@@ -503,6 +354,15 @@ export default function App() {
                   required
                 ></textarea>
               </div>
+              <div className="flex flex-col gap-2 mb-4">
+                <p className="font-label-sm text-[10px] text-neon-red uppercase">CONTACT_INFO:</p>
+                <div className="font-label-sm text-[10px] text-on-surface-variant space-y-1">
+                  <p>&gt; Email: {personalInfo.email}</p>
+                  <p>&gt; Phone: {personalInfo.phone}</p>
+                  <p>&gt; GitHub: {personalInfo.github}</p>
+                  <p>&gt; LinkedIn: {personalInfo.linkedin}</p>
+                </div>
+              </div>
               {feedback && (
                 <div className={`font-label-sm text-[11px] uppercase tracking-widest py-2 px-3 ${
                   feedback.type === "success"
@@ -527,12 +387,12 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-surface-dim dark:bg-surface-dim w-full border-t border-outline-variant dark:border-outline-variant px-gutter py-4 flex flex-col md:flex-row justify-between items-center gap-4 mt-auto">
         <div className="font-label-sm text-label-sm tracking-tighter text-primary dark:text-primary animate-pulse">
-          © 2024 NEURAL_LINK_ESTABLISHED // ALL_RIGHTS_RESERVED
+          © 2025 {personalInfo.name.toUpperCase()} // ALL_RIGHTS_RESERVED
         </div>
         <div className="flex gap-4">
-          <a className="font-label-sm text-label-sm tracking-tighter text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">DEBUG</a>
-          <a className="font-label-sm text-label-sm tracking-tighter text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">ENCRYPT</a>
-          <a className="font-label-sm text-label-sm tracking-tighter text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">BYPASS</a>
+          <a className="font-label-sm text-label-sm tracking-tighter text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href={`https://${personalInfo.github}`} target="_blank" rel="noopener noreferrer">GITHUB</a>
+          <a className="font-label-sm text-label-sm tracking-tighter text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href={`https://${personalInfo.linkedin}`} target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+          <a className="font-label-sm text-label-sm tracking-tighter text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href={`mailto:${personalInfo.email}`}>CONTACT</a>
         </div>
         <div className="font-headline-md text-primary">
           SYS_COMMAND_V1.0
