@@ -1,3 +1,18 @@
+# Dependencies and local tools
 node_modules
-.DS_Store
+npm-debug.log*
 *.log
+
+# Secrets: never commit these
+.env
+.env.*
+
+# Host and editor folders
+.netlify
+.vercel
+.wrangler
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
