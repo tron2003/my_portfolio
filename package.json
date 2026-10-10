@@ -2,10 +2,10 @@
   "name": "kanish-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Kanish's portfolio - sumi-e ink wash, static site (no build step)",
+  "description": "Kanish Mahato's portfolio: static site, sumi-e ink wash",
   "scripts": {
-    "dev": "http-server . -p 5173 -c-1 -o",
-    "start": "http-server . -p 5173 -c-1"
+    "build": "echo \"Static site: nothing to compile\"",
+    "dev": "http-server . -p 5173 -c-1 -o"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
