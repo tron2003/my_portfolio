@@ -1,5 +1,3 @@
-# Render Blueprint: deploys this folder as a free static site.
-# In Render: New -> Blueprint -> pick this repo and branch.
 services:
   - type: web
     runtime: static

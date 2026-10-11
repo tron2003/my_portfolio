@@ -171,8 +171,10 @@
     window.addEventListener("pointermove", (e) => {
       x = e.clientX;
       y = e.clientY;
-      cursor.classList.add("on");
-      cursor.classList.toggle("big", !!e.target.closest("a, button, input, textarea, .work"));
+      const inZone = !!e.target.closest(".black-dot");
+      const hot = !!e.target.closest("a, button, input, textarea, .work,.job");
+      cursor.classList.toggle("on", inZone || hot);
+      cursor.classList.toggle("big", hot);
     });
     document.addEventListener("pointerleave", () => cursor.classList.remove("on"));
     const follow = () => {
